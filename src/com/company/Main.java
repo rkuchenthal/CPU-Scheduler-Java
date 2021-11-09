@@ -24,38 +24,48 @@ public class Main {
         InputStreamReader r = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(r);
 
-        while((line = br.readLine()) != null){
-            //TODO remove test int
-            int test = 0;
+        while(!(line = br.readLine()).equals("")){
+
+            //TODO remove test
+            //int test = 0;
+
             //validate all inputs are integers
             try{
                 //turns "1 2 3" -> arr[0 ="1", 1 ="2", 2 ="3"]
                 inputLine = line.split(" ");
 
                 //TODO remove print lines
-                System.out.println("Input line "+test+inputLine[2]);
-                System.out.print("ID: "+inputLine[0]);
-                System.out.print(" time: "+inputLine[1]);
-                System.out.println(" priority: "+inputLine[2]);
+               // System.out.println("Input line "+test);
+                //System.out.print("ID: "+inputLine[0]);
+                //System.out.print(" time: "+inputLine[1]);
+                //System.out.println(" priority: "+inputLine[2]);
 
                 Inputs newInput = new Inputs(Integer.parseInt(inputLine[0]),
                                              Integer.parseInt(inputLine[1]),
                                              Integer.parseInt(inputLine[2]));
                 //Now add the line of input to the inputs arraylist
                 inputs.add(newInput);
+                //break;
 
-
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println(e);
-                System.out.println("Input not acceptable, Integers only.");
-            }
+                System.out.println("Input not acceptable, 3 Integers spperated by spaces only.");
+           }
             //TODO remove test
-            test ++;
+            //test++;
         }
 
-        //now call all 3 schedulers 1 after another and have them all print the results
+        //Now call all 3 schedulers 1 after another each
+        // using the inputs ArrayList<>
+        // and have them all print the results
         // once their done and before the next one starts
 
+        //First Come First Serve
+        FCFS.FcfsAlg(inputs);
+        //High Priority First
+        //HPF.HpfAlg(inputs);
+        //Round Robin
+        //RR.RrAlg(inputs);
 
 
 
