@@ -7,13 +7,43 @@ public class FCFS {
     public static void FcfsAlg(ArrayList<Inputs> inputList){
 
         printList(inputList);
+        FcfsWaitOutput(inputList);
+        //TODO print throughput
+        System.out.println("                <><> end FCFS <><>");
+    }
+
+    //prints the wait time for each process to access the cpu
+    public static void FcfsWaitOutput(ArrayList<Inputs> inputList){
+        double totTime = 0, totProcesses = 0;
+        ArrayList<Integer> turnAroundTimes = new ArrayList();
 
         for(int i = 0; i < inputList.size();i++){
             int id = inputList.get(i).id;
-            int time =  WaitTime(inputList, i);
+            int waitTime =  WaitTime(inputList, i);
             //TODO construct output
-            System.out.println("fcfs wait of p" + id + " = " + time);
+            System.out.println("fcfs wait of p" + id + " = " + waitTime);
+            totTime += waitTime;
+            totProcesses++;
+            turnAroundTimes.add(inputList.get(i).time);
         }
+        System.out.println("average wait time for "+ (int)totProcesses + " procs = " +(totTime/totProcesses));
+
+        //print out turn-around times and turn-around avg
+        TurnAroundTimeOutput(turnAroundTimes, inputList);
+
+    }
+
+    //prints all turn-around times and avg
+    public static void TurnAroundTimeOutput(ArrayList<Integer> times, ArrayList<Inputs> proccesIDs){
+        double totTurnTime = 0,totProcesses = 0;
+
+        for(int i = 0; i< times.size(); i++){
+            totTurnTime += times.get(i);
+            System.out.println("fcfs turn-around time for p" +proccesIDs.get(i).id +" = " + (int)totTurnTime);
+            totProcesses++;
+        }
+
+        System.out.println("average turn-around for "+ (int)totProcesses + " procs = " + totTurnTime/totProcesses);
     }
 
     //calculates the total wait time of each process
