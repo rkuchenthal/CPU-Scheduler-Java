@@ -44,6 +44,7 @@ public class Main {
 
         }
 
+
         //Now call all 3 schedulers 1 after another each using the inputs ArrayList<>
         // and have them all print the results once their done and before the next one starts
 
