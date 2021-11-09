@@ -20,8 +20,8 @@ public class FCFS {
         for(int i = 0; i < inputList.size();i++){
             int id = inputList.get(i).id;
             int waitTime =  WaitTime(inputList, i);
-            //TODO construct output
             System.out.println("fcfs wait of p" + id + " = " + waitTime);
+            //collecting info to compute avg wait time for cpu access
             totTime += waitTime;
             totProcesses++;
             turnAroundTimes.add(inputList.get(i).time);
@@ -37,6 +37,8 @@ public class FCFS {
     public static void TurnAroundTimeOutput(ArrayList<Integer> times, ArrayList<Inputs> proccesIDs){
         double totTurnTime = 0,totProcesses = 0;
 
+        //iterate through the time list that has the same size as the proccesIDs and add up all
+        // times for all process's and at same time gather info to compute avg turn-around time.
         for(int i = 0; i< times.size(); i++){
             totTurnTime += times.get(i);
             System.out.println("fcfs turn-around time for p" +proccesIDs.get(i).id +" = " + (int)totTurnTime);
@@ -50,7 +52,9 @@ public class FCFS {
     public static int WaitTime(ArrayList<Inputs> list, int counter){
         int waitTime = 0;
 
+        //the first process will always have 0 waitTime
         if(counter == 0) return 0;
+            //for all others we iterate up to that point in the list and add up the waitTime
         else{
             for (int i = 0; i < counter; i++){
                 waitTime += list.get(i).time;

@@ -61,9 +61,9 @@ public class Main {
         // once their done and before the next one starts
 
         //First Come First Serve
-        FCFS.FcfsAlg(inputs);
+        //FCFS.FcfsAlg(inputs);
         //High Priority First
-        //HPF.HpfAlg(inputs);
+        HPF.HpfAlg(inputs);
         //Round Robin
         //RR.RrAlg(inputs);
 

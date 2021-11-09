@@ -1,6 +1,6 @@
 package com.company;
 
-public class Inputs {
+public class Inputs  {
 
     int id,time,priority;
 
@@ -9,4 +9,6 @@ public class Inputs {
         this.time = time;
         this. priority = priority;
     }
+
+
 }
