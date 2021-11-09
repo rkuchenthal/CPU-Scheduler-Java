@@ -5,17 +5,14 @@ import java.util.Collections;
 
 public class HPF {
 
-
-
     public static void HpfAlg(ArrayList<Inputs> inputList){
-
         // assign sortedInputs the correctly ordered priority values in inputList
         ArrayList<Inputs> sortedInputs = Sorter(inputList);
-
         printList(sortedInputs);
         Utils.WaitOutput(sortedInputs, "HPF");
         //TODO print throughput
         System.out.println("                <><> end HPF <><>");
+
     }
 
     //prints the input the user inputted (req output format for assignment)
