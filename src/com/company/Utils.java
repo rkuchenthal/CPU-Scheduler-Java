@@ -36,8 +36,10 @@ public class Utils {
             totProcesses++;
             totTurnTime += turnTime;
         }
-
+        //print the avg TA time
         System.out.println("average turn-around for "+ (int)totProcesses + " procs = " + totTurnTime/totProcesses);
+        //print the throughput
+        System.out.println(scheduler + " throughput for " + (int)totProcesses + " procs = " + totProcesses/turnTime + " proc/ms");
     }
 
     //calculates the total wait time of each process
