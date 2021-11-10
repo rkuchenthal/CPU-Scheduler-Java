@@ -10,5 +10,4 @@ public class Inputs  {
         this. priority = priority;
     }
 
-
 }
