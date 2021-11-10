@@ -10,6 +10,7 @@ public class FCFS {
         Utils.WaitOutput(inputList, "FCFS");
         //TODO print throughput
         System.out.println("                <><> end FCFS <><>");
+        System.out.println();
 
     }
 
@@ -22,7 +23,7 @@ public class FCFS {
             System.out.println(list.get(i).priority);
         }
         System.out.println("End of list.");
-        System.out.println("");
+        System.out.println();
     }
 
 }

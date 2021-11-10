@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class HPF {
 
@@ -12,6 +11,7 @@ public class HPF {
         Utils.WaitOutput(sortedInputs, "HPF");
         //TODO print throughput
         System.out.println("                <><> end HPF <><>");
+        System.out.println();
 
     }
 
@@ -24,7 +24,7 @@ public class HPF {
             System.out.println(list.get(i).priority);
         }
         System.out.println("End of list.");
-        System.out.println("");
+        System.out.println();
     }
 
     //sorts the input List based on highest priorities
