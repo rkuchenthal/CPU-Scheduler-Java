@@ -8,7 +8,7 @@ public class FCFS {
 
         printList(inputList);
         Utils.WaitOutput(inputList, "FCFS");
-        //TODO print throughput
+        System.out.println();
         System.out.println("                <><> end FCFS <><>");
         System.out.println();
 

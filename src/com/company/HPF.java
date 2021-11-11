@@ -9,7 +9,7 @@ public class HPF {
         ArrayList<Inputs> sortedInputs = Sorter(inputList);
         printList(sortedInputs);
         Utils.WaitOutput(sortedInputs, "HPF");
-        //TODO print throughput
+        System.out.println();
         System.out.println("                <><> end HPF <><>");
         System.out.println();
 
@@ -28,19 +28,26 @@ public class HPF {
     }
 
     //sorts the input List based on highest priorities
-    public static ArrayList<Inputs> Sorter(ArrayList<Inputs> inputList ){
-        for (int i = 0; i < inputList.size(); i++) {
+    public static ArrayList<Inputs> Sorter(ArrayList<Inputs> list ){
 
-            for (int j = inputList.size() - 1; j > i; j--) {
-                if (inputList.get(i).priority > inputList.get(j).priority) {
+        //copying list into tmp list to prevent list from being modified at all
+        ArrayList<Inputs> tmpList = new ArrayList();
+        for(int i = 0; i< list.size();i++){
+            tmpList.add(list.get(i));
+        }
 
-                    Inputs tmp = new Inputs(inputList.get(i).id,inputList.get(i).time,inputList.get(i).priority) ;
-                    inputList.set(i,inputList.get(j)) ;
-                    inputList.set(j,tmp);
+        for (int i = 0; i < tmpList.size(); i++) {
+
+            for (int j = tmpList.size() - 1; j > i; j--) {
+                if (tmpList.get(i).priority > tmpList.get(j).priority) {
+
+                    Inputs tmp = new Inputs(tmpList.get(i).id,tmpList.get(i).time,tmpList.get(i).priority) ;
+                    tmpList.set(i,tmpList.get(j)) ;
+                    tmpList.set(j,tmp);
 
                 }
             }
         }
-        return inputList;
+        return tmpList;
     }
 }
